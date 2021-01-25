@@ -38,3 +38,8 @@ const displayEditFoods = (data, id) => {
 	food.querySelector( '.recipe-title' ).innerHTML = data.title
 	food.querySelector( '.recipe-ingredients' ).innerHTML = data.ingredients
 }
+
+const removeFoods = (id) => {
+	const food = document.querySelector( `.recipe[data-id="${id}"]` )
+	food.remove()
+}

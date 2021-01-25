@@ -49,7 +49,7 @@ addForm.addEventListener( 'submit', e => {
     addForm.reset()
 } )
 
-/** Edit */
+/** Update */
 const editForm = document.querySelector('.edit-recipe')
 editForm.addEventListener( 'submit', e => {
     e.preventDefault() // mencegah halaman direload
@@ -72,6 +72,12 @@ editForm.addEventListener( 'submit', e => {
 
 } )
 
+/** Delete */
+// Ini ada di event binding bagian: else if ( evt.target.innerHTML === 'delete_outline' )
+// Yang dilaukan cuma tangkap id dari elemen lalu col.doc( id ).delete()
+
+
+/** Event Binding */
 const recipeContainer = document.querySelector( '.recipes' )
 recipeContainer.addEventListener( 'click', evt => {
     if ( evt.target.innerHTML === 'create' ) {
@@ -96,5 +102,10 @@ recipeContainer.addEventListener( 'click', evt => {
                 }
             } )
             .catch()
+
+    } else if ( evt.target.innerHTML === 'delete_outline'
+            && confirm( 'Yakin ingin menghapus data ?' ) ) {
+        const id = evt.target.getAttribute( 'data-id' )
+        col.doc( id ).delete()
     }
 } )
