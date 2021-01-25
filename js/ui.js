@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Initialiez Materialize for form
 	const rightForms = document.querySelectorAll('.right-form')
-	M.sidenav.init(rightForms, {edge: 'right'})
+	M.Sidenav.init(rightForms, {edge: 'right'})
 })
 
 // Menghandle ketika suatu dokumen DITAMBAHKAN ke firebase
@@ -23,7 +23,7 @@ const displayFoods = (data, id) => {
 			<div class="recipe-ingredients">${data.ingredients}</div>
 		</div>
 		<div class="recipe-delete" style="cursor: pointer">
-			<i class="material-icons" data-id="${id}">create</i>
+			<i class="material-icons" data-target="right-form" data-id="${id}">create</i>
 			<i class="material-icons" data-id="${id}">delete_outline</i>
 		</div>
 	</div>
@@ -33,7 +33,8 @@ const displayFoods = (data, id) => {
 }
 
 const displayEditFoods = (data, id) => {
-	const food = document.querySelector( `.recipe[data-id] ="${id}"` )
+	console.log( id )
+	const food = document.querySelector( `.recipe[data-id="${id}"]` )
 	food.querySelector( '.recipe-title' ).innerHTML = data.title
 	food.querySelector( '.recipe-ingredients' ).innerHTML = data.ingredients
 }

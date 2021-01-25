@@ -22,6 +22,7 @@ col.onSnapshot( snaphot => {
             displayFoods( change.doc.data(), change.doc.id )
         }
         if ( change.type === 'modified' ) {
+            console.log( change )
             displayEditFoods( change.doc.data(), change.doc.id )
         }
         if ( change.type === 'removed' ) {
@@ -53,6 +54,11 @@ const editForm = document.querySelector('.edit-recipe')
 editForm.addEventListener( 'submit', e => {
     e.preventDefault() // mencegah halaman direload
     const id    = editForm.food_id.value
+
+    console.log( editForm.food_id.value )
+    console.log( editForm.title.value )
+    console.log( editForm.ingredients.value )
+
     const food  = {
         title       : editForm.title.value,
         ingredients : editForm.ingredients.value
@@ -70,16 +76,20 @@ const recipeContainer = document.querySelector( '.recipes' )
 recipeContainer.addEventListener( 'click', evt => {
     if ( evt.target.innerHTML === 'create' ) {
         const id = evt.target.getAttribute( 'data-id' )
+        // console.log(id)
         col .doc( id )
             .get()
             .then( doc => {
                 if ( doc.exists ) {
                     const rightForm = document.querySelector( '#right-form' )
-                    
                     const data = doc.data()
+
+                    rightForm.querySelector( '#food_id' ).value = id
+
                     rightForm.querySelector( '#title' ).value = data.title
+
                     rightForm.querySelector( '#ingredients' ).value = data.ingredients
-                    rightForm.querySelector( '#food_id' ).value = data.id
+
 
                     const instance = M.Sidenav.getInstance( rightForm )
                     instance.open()

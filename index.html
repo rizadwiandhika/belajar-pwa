@@ -50,17 +50,15 @@
 	<!-- recipes -->
 	<div class="recipes container grey-text text-darken-1">
 		
-		<!-- <div class="card-panel recipe white row">
+		<!-- <div class="card-panel recipe white row" data-id="${id}">
 			<img src="/img/dish.png" alt="recipe thumb" />
 			<div class="recipe-details">
-				<div class="recipe-title">Edame Noodles</div>
-				<div class="recipe-ingredients">
-					Edame Beans, Noodels, Garlic oil
-				</div>
+				<div class="recipe-title">${data.title}</div>
+				<div class="recipe-ingredients">${data.ingredients}</div>
 			</div>
-			<div class="recipe-delete">
-				<i class="material-icons data-id="${id}">create</i>
-				<i class="material-icons">delete_outline</i>
+			<div class="recipe-delete" style="cursor: pointer">
+				<i class="material-icons" data-id="${id}">create</i>
+				<i class="material-icons" data-id="${id}">delete_outline</i>
 			</div>
 		</div> -->
 	</div>
@@ -95,7 +93,7 @@
 		<form class="edit-recipe container section">
 			<h6>Edit Recipe</h6>
 			<div class="divider"></div>
-			<input type="hidden" name="food_id" id="food_id" value>
+			<input type="hidden" name="food_id" id="food_id">
 			<div class="input-field">
 				<input placeholder="e.g. Ninja soup" id="title" type="text" class="validate"/>
 				<label for="title">Recipe Title</label>

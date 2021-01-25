@@ -1,6 +1,6 @@
 // membuat memori cache
-const staticCacheName = "site-static-v13"
-const dynamicCacheName = "site-dynamic-v13"
+const staticCacheName = "site-static-v30"
+const dynamicCacheName = "site-dynamic-v30"
 // const dynamicCacheName = "site-dynamic-v2"
 // membuat list apa aja yg mau disimpan di cache
 const assets = [
